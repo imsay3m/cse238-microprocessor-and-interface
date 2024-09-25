@@ -42,10 +42,11 @@ MOV DS,AX
     MOV AH, 1
     INT 21h
     
-    ;ADDITION
     
     SUB AL, 30h
     MOV BH, AL
+    
+    ;ADDITION
     
     MOV CL, BL
     MOV AL, BL
@@ -98,10 +99,45 @@ MOV DS,AX
     INT 21h
     
     ;MULTIPLICATION
+    MOV AL, BL
+    MOV AH, 00h
+    MUL BH
     
+    ADD AL, 30h
+    MOV CL, AL
     
+    LEA DX, M
+    MOV AH, 9
+    INT 21h
     
+    MOV AH, 2
+    MOV DL, CL
+    INT 21h
+    
+    LEA DX, NEWLINE
+    MOV AH, 9
+    INT 21h
+        
     ;DIVISION
+    
+    MOV AL, BL
+    MOV AH,00h
+    DIV BH
+    
+    ADD AL,30h
+    MOV CH, AL
+    
+    LEA DX, D
+    MOV AH, 9
+    INT 21h
+    
+    MOV AH, 2
+    MOV DL, CH
+    INT 21h
+    
+    LEA DX, NEWLINE
+    MOV AH, 9
+    INT 21h
     
     
     
