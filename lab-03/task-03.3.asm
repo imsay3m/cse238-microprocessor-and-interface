@@ -25,8 +25,8 @@ MOV DS,AX
     
     MOV BL, AL
     
-    LEA DX, NEWLINE
-    MOV AH, 9
+    MOV DX, 0Ah
+    MOV AH, 2
     INT 21h    
     
     MOV DL, BL
